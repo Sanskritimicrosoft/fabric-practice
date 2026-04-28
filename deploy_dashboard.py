@@ -154,7 +154,7 @@ def build_model_bim():
                     "kind": "m",
                     "expression": (
                         "let\n"
-                        f'    database = Sql.Database("{SQL_ENDPOINT_CONN}", "{SQL_ENDPOINT_ID}")\n'
+                        f'    database = Sql.Database("{SQL_ENDPOINT_CONN}", "{LAKEHOUSE_ID}")\n'
                         "in\n"
                         "    database"
                     )
