@@ -120,7 +120,14 @@ def build_model_bim():
         "model": {
             "culture": "en-US",
             "defaultPowerBIDataSourceVersion": "powerBI_V3",
+            "defaultMode": "directLake",
             "sourceQueryCulture": "en-US",
+            "annotations": [
+                {
+                    "name": "__PBI_TimeIntelligenceEnabled",
+                    "value": "0"
+                }
+            ],
             "tables": [
                 {
                     "name": TABLE_NAME,
@@ -145,12 +152,12 @@ def build_model_bim():
                 {
                     "name": "DatabaseQuery",
                     "kind": "m",
-                    "expression": [
-                        "let",
-                        f'    database = Sql.Database("{SQL_ENDPOINT_CONN}", "{LAKEHOUSE_ID}")',
-                        "in",
+                    "expression": (
+                        "let\n"
+                        f'    database = Sql.Database("{SQL_ENDPOINT_CONN}", "{SQL_ENDPOINT_ID}")\n'
+                        "in\n"
                         "    database"
-                    ]
+                    )
                 }
             ]
         }
